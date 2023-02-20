@@ -3,3 +3,8 @@
     margin-top: 40px;
     min-height: 100vh;
 }
+
+.homepage-light{
+    background-color: var(--white);
+    color: black;
+}
