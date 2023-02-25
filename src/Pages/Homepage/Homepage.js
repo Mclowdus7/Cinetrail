@@ -2,6 +2,8 @@ import React, {useContext} from 'react'
 import './Homepage.css'
 import Slider from '../../Components/Slider/Slider'
 import {ThemeContext} from '../../contexts/ThemeContext';
+import PopularMovies from '../../Components/PopularMovies/PopularMovies';
+import TopMovies from '../../Components/TopMovies/TopMovies';
 
 function Homepage() {
 
@@ -19,7 +21,10 @@ function Homepage() {
   return (
     <div className={darkMode? 'homepage-container': 'homepage-container homepage-light'}>
       <Slider />
-      Homepage
+      <div className='movies-wrapper'>
+          <PopularMovies />
+          <TopMovies />
+      </div>
     </div>
   )
 }

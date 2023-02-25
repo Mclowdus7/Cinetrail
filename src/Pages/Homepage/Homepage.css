@@ -1,10 +1,15 @@
 .homepage-container {
     color: var(--white);
-    margin-top: 40px;
+    margin-top: var(--header-height);
     min-height: 100vh;
+    
 }
 
 .homepage-light{
     background-color: var(--white);
     color: black;
+}
+
+.movies-wrapper {
+    display: flex;
 }
