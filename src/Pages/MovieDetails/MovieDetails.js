@@ -4,7 +4,8 @@ import './MovieDetails.css'
 import axios from 'axios';
 import ReactPlayer from 'react-player'
 import {ThemeContext} from '../../contexts/ThemeContext';
-
+import Review from '../../Components/Review/Review';
+import Rating from '../../Components/Rating/Rating';
 
 function MovieDetails() {
 
@@ -25,7 +26,16 @@ function MovieDetails() {
   const [videoLink, setVideoLink] = React.useState ('')
 
   const [movie, setMovie] = React.useState()
- 
+
+  //create state for reviews
+
+  const [reviews, setReviews] = React.useState([])
+
+  //state for number of reviews showing
+  const [reviewNumber, setReviewNumber] = React.useState(3)
+  const [totalReviews, setTotalReviews] = React.useState(0)
+  const [rating, setRating] = React.useState(0)
+
   //gives me movie details
   //https://api.themoviedb.org/3/movie/1035806?api_key=a0fefc795663bf28827e25b186cb7b61&language=en-US
   //gives me trailer
@@ -45,15 +55,29 @@ function MovieDetails() {
             // console.log(youTubeLinks)
             //store the first one in state
             setVideoLink(youTubeLinks[0].key)
-            console.log(youTubeLinks[0].key)
+            // console.log(youTubeLinks[0].key)
       })
       .catch(err => console.log(err))
 
       // make api call to get movie info
       axios.get(`${baseUrl}/movie/${movieId}?api_key=${apiKey}`)
       .then(res => {
-          console.log(res.data)
+          // console.log(res.data)
           setMovie(res.data)
+          setRating(res.data.vote_average/2)
+      })
+      .catch(err => console.log(err))
+
+      //api call to get reviews
+
+      //https://${baseUrl}/movie/${movieId}/reviews?api_key=${apiKey}
+
+      axios.get(`${baseUrl}/movie/${movieId}/reviews?api_key=${apiKey}`)
+      .then(res => {
+          // console.log(res.data.results)
+          setReviews(res.data.results)
+          setTotalReviews(res.data.total_results)
+          
       })
       .catch(err => console.log(err))
 
@@ -86,6 +110,7 @@ function MovieDetails() {
           <div className='title-container'>
             <h2>{movie?.title}</h2>
           </div>
+          <Rating stars={rating} />
           <div className='info-container'>
               <img src={`${imageBase}/${movie?.poster_path}`}
                 className="details-poster"/>
@@ -98,8 +123,17 @@ function MovieDetails() {
             </div>
           </div>
           <div className='review-container'>
-            review
+            {
+              reviews.slice(0, reviewNumber).map(item=><Review 
+              review={item}/>)
+            }
           </div>
+          {
+           reviewNumber <= totalReviews ?
+          <p onClick={()=>setReviewNumber(reviewNumber + 3)}>Read more reviews</p>
+          :
+          <p onClick={()=>setReviewNumber(3)}>End of reviews</p>
+          }
     </div>
   )
 }

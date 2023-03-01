@@ -32,9 +32,11 @@
     width: 50%;
     /* z-index: 2; */
     color: var(--white);
-    padding: 20px;
+    padding-left: 50px;
 }
-
+/* .slider-movie-info p{
+    margin-bottom: 0;
+} */
 .movie-link{
     color: var(--white);
     cursor: pointer;
