@@ -2,14 +2,25 @@ import React, {useContext} from 'react'
 import './Header.css'
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import {ThemeContext} from '../../contexts/ThemeContext';
+import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
+import {UserContext} from '../../contexts/UserContext';
+
 
 function Header() {
 
+   //activate useNavigate
+   const navigate = useNavigate();
+
    // const darkMode = true;
+
+   const [profileOptions, setProfileOptions] = React.useState(false);
 
     //note use CURLY! brackets here to access global state
 
    const {darkMode, setDarkMode} = useContext(ThemeContext)
+
+   const {user, setUser, token, setToken} = React.useContext(UserContext)
 
    const handleTheme = () => {
     console.log('toggle')
@@ -17,6 +28,15 @@ function Header() {
     setDarkMode(!darkMode)
     //save value in local storage
     localStorage.setItem("darkmode", !darkMode)
+   }
+
+   const handleLogout = () =>{
+    //clear local storage
+    localStorage.clear()
+    setUser('')
+    setToken('')
+    //navigate to homepage
+    navigate('/')
    }
 
   return (
@@ -42,8 +62,26 @@ function Header() {
                 onClick={handleTheme} className='theme-icon' />
             </div>
         }
-        <button 
+        {
+          token?
+          <div className='profile-container'>
+            <img src={user.image_url}
+            onClick={()=>setProfileOptions(!profileOptions)} className='profile-img' />
+            <p>Welcome {user.username}</p>
+            {
+              profileOptions?
+              <div className='profile-options'>
+                    <p>My Favourites</p>
+                    <p className='logout' onClick={handleLogout}>Logout</p>
+              </div>
+                :
+                null
+            }
+          </div>
+        :
+        <button onClick={()=>navigate('/signup')}
         className='create-account-btn'>Create An Account</button>
+      }
       </div>
     </div>
   )
