@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SignUp from './Pages/Users/SignUp';
 import SignIn from './Pages/Users/SignIn';
 import UserContextProvider from './contexts/UserContext';
+import MyFavorites from './Pages/MyFavorites/MyFavorites';
 
 function App() {
   return (
@@ -18,9 +19,11 @@ function App() {
         <Header />
         <Routes>
             <Route path="/" element={<Homepage />} />
+            <Route path='/myfavorites' element={<MyFavorites />} />
             <Route path="/moviedetails/:movieId" element={<MovieDetails />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
+           
         </Routes>
         <Footer />
       </ThemeContextProvider>

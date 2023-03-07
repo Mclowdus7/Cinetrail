@@ -12,6 +12,7 @@
 
 .top-rated-card p{
     margin-top: 10px;
+    color: var(--red);
 }
 
 .movie-info-top{

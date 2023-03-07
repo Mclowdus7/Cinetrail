@@ -25,9 +25,9 @@ function Review({review}) {
         <div className='review-text'>
             {
                 !seeMore ? 
-            <p>{review?.content.slice(0, 250)}<span onClick={()=>setSeeMore(true)}>...seeMore</span></p>
+            <p>{review?.content.slice(0, 250)}<span onClick={()=>setSeeMore(true)}>...see more</span></p>
             :
-            <p>{review?.content}<span onClick={()=>setSeeMore(false)}>...seeLess</span></p>
+            <p>{review?.content}<span onClick={()=>setSeeMore(false)}>...see less</span></p>
             }
         </div>
     </div>

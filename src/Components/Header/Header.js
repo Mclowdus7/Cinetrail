@@ -7,6 +7,7 @@ import {useNavigate} from 'react-router-dom';
 import {UserContext} from '../../contexts/UserContext';
 
 
+
 function Header() {
 
    //activate useNavigate
@@ -71,7 +72,7 @@ function Header() {
             {
               profileOptions?
               <div className='profile-options'>
-                    <p>My Favourites</p>
+                    <Link to='/myfavorites'>My Favourites</Link>
                     <p className='logout' onClick={handleLogout}>Logout</p>
               </div>
                 :
