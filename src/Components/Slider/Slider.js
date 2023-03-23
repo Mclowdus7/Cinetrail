@@ -32,6 +32,7 @@ React.useEffect(
             setCurrentRating(res.data.results[0].vote_average/2)
         })
         .catch(err => console.log(err))
+        //eslint disable-next-line
     },[]
 )
 
@@ -42,6 +43,7 @@ React.useEffect (
       if(index > 0){
         setCurrentRating((upcomingMovies[index]?.vote_average)/2)
       }
+      //eslint disable-next-line
   }, [index]
 )
 

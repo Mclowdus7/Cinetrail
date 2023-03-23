@@ -9,11 +9,11 @@ function Homepage() {
 
   //note use CURLY! brackets here to access global state
 
-  const {darkMode, setDarkMode} = useContext(ThemeContext)
+  const {darkMode} = useContext(ThemeContext)
 
-  const apiKey = process.env.REACT_APP_API_KEY;
-  const baseUrl = process.env.REACT_APP_BASE_URL;
-  const imageBase = process.env.REACT_APP_IMAGE_BASE;
+  // const apiKey = process.env.REACT_APP_API_KEY;
+  // const baseUrl = process.env.REACT_APP_BASE_URL;
+  // const imageBase = process.env.REACT_APP_IMAGE_BASE;
   // console.log(apiKey);
   // console.log(baseUrl);
   // console.log(imageBase);

@@ -10,7 +10,7 @@ import {UserContext} from '../../contexts/UserContext';
 
 function MovieDetails() {
 
-  const {darkMode, setDarkMode} = useContext(ThemeContext)
+  const {darkMode} = useContext(ThemeContext)
 
   const apiKey = process.env.REACT_APP_API_KEY;
   const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -32,7 +32,7 @@ function MovieDetails() {
   //create state for reviews
 
   const [reviews, setReviews] = React.useState([])
-  const {user, setUser, token, setToken} = React.useContext(UserContext)
+  const {user, token} = React.useContext(UserContext)
   
 
   //state for number of reviews showing
@@ -65,6 +65,7 @@ function MovieDetails() {
 
       })
       .catch(err => console.log(err))
+      //eslint-disable-next-line
     }, [user]
   )
 
@@ -107,8 +108,7 @@ function MovieDetails() {
           
       })
       .catch(err => console.log(err))
-
-      
+      //eslint disable-next-line
       },[]
     )
 
@@ -156,7 +156,7 @@ function MovieDetails() {
           :
           <div className='trailer-container-blank'
           style={{
-                backgroundImage:`url("${imageBase}/${movie?.     backdrop_path}")`,
+                backgroundImage:`url("${imageBase}/${movie?.backdrop_path}")`,
                 backgroundPosition:"center",
                 backgroundSize:"cover"
           }}>
@@ -184,7 +184,7 @@ function MovieDetails() {
           </div>
           <Rating stars={rating} />
           <div className='info-container'>
-              <img src={`${imageBase}/${movie?.poster_path}`}
+              <img alt='movie-pic' src={`${imageBase}/${movie?.poster_path}`}
                 className="details-poster"/>
             <div className='movie-details-info'>
                 <h2>{movie?.tagline}</h2>

@@ -105,7 +105,7 @@ function Header() {
         {
           token?
           <div className='profile-container'>
-            <img src={user.image_url}
+            <img src={user.image_url} alt='user'
             onClick={()=>setProfileOptions(!profileOptions)} className='profile-img' />
             <p>Welcome {user.username}</p>
             {

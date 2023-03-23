@@ -9,7 +9,7 @@ function MyFavorites() {
 
     //show all favorite movies for a particular user
     //favoriteMovies/user/:userid
-    const {user, setUser, token, setToken} = React.useContext(UserContext);
+    const {user, token} = React.useContext(UserContext);
 
     const [movies, setMovies] = React.useState([])
 
@@ -22,6 +22,7 @@ function MyFavorites() {
                 setMovies(res.data.favorites)
             })
             .catch(err => console.log(err))
+            //eslint disable-next-line
         }, [user]
 
     )

@@ -7,7 +7,7 @@ function TopMovies() {
 
     const apiKey = process.env.REACT_APP_API_KEY;
     const baseUrl = process.env.REACT_APP_BASE_URL;
-    const imageBase = process.env.REACT_APP_IMAGE_BASE;
+    // const imageBase = process.env.REACT_APP_IMAGE_BASE;
 
     // https://api.themoviedb.org/3/movie/top_rated?api_key=a0fefc795663bf28827e25b186cb7b61&language=en-US&page=1
 
@@ -22,6 +22,7 @@ function TopMovies() {
                 setTopRatedMovies(res.data.results.slice(0, 10))
             })
             .catch(err => console.log(err))
+            //eslint disable-next-line
         },[]
     )
 

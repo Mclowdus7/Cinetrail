@@ -10,7 +10,7 @@ function SignIn() {
     
     //access global state
 
-    const {user, setUser, token, setToken} = React.useContext(UserContext)
+    const {setUser, setToken} = React.useContext(UserContext)
 
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')

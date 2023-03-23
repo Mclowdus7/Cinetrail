@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './PopularMovies.css'
 import axios from 'axios';
 import MovieCard from '../MovieCard/MovieCard';
@@ -6,7 +6,7 @@ import MovieCard from '../MovieCard/MovieCard';
 function PopularMovies() {
     const apiKey = process.env.REACT_APP_API_KEY;
     const baseUrl = process.env.REACT_APP_BASE_URL;
-    const imageBase = process.env.REACT_APP_IMAGE_BASE;
+    // const imageBase = process.env.REACT_APP_IMAGE_BASE;
 
     //create an array for page numbers
     const pageNumbers = [1,2,3,4,5,6,7,8,9,10]
@@ -25,6 +25,7 @@ function PopularMovies() {
                 setPopularMovies(res.data.results)
             })
             .catch(err => console.log(err))
+            //eslint disable-next-line
         },[page] //dependency to run use effect again on change
     )
 

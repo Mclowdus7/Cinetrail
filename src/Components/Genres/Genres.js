@@ -19,6 +19,7 @@ function Genres({movieGenres}) {
             setAllGenres(res.data.genres)
         })
         .catch(err => console.log(err))
+        //eslint disable-next-line
     },[]
 )
 
