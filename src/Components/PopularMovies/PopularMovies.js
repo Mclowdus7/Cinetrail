@@ -25,7 +25,7 @@ function PopularMovies() {
                 setPopularMovies(res.data.results)
             })
             .catch(err => console.log(err))
-            //eslint disable-next-line
+            //eslint-disable-next-line
         },[page] //dependency to run use effect again on change
     )
 

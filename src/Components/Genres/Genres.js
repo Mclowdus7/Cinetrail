@@ -19,7 +19,7 @@ function Genres({movieGenres}) {
             setAllGenres(res.data.genres)
         })
         .catch(err => console.log(err))
-        //eslint disable-next-line
+        //eslint-disable-next-line
     },[]
 )
 
@@ -28,6 +28,7 @@ const genreList = () =>{
     //find the match in all Genres
     //add to an array that I will return
     const glist = []
+    //eslint-disable-next-line
     movieGenres?.map(id =>{
         //find the name in all Genres that matches this id
         for (let i = 0; i < allGenres.length; i++)

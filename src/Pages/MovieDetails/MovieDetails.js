@@ -108,7 +108,7 @@ function MovieDetails() {
           
       })
       .catch(err => console.log(err))
-      //eslint disable-next-line
+      //eslint-disable-next-line
       },[]
     )
 

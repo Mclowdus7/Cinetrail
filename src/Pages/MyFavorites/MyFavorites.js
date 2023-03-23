@@ -22,7 +22,7 @@ function MyFavorites() {
                 setMovies(res.data.favorites)
             })
             .catch(err => console.log(err))
-            //eslint disable-next-line
+            //eslint-disable-next-line
         }, [user]
 
     )

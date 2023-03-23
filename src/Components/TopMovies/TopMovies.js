@@ -22,7 +22,7 @@ function TopMovies() {
                 setTopRatedMovies(res.data.results.slice(0, 10))
             })
             .catch(err => console.log(err))
-            //eslint disable-next-line
+            //eslint-disable-next-line
         },[]
     )
 
