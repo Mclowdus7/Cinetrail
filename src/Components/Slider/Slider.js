@@ -6,6 +6,8 @@ import Rating from '../Rating/Rating';
 import { Link } from 'react-router-dom';
 import Genres from '../Genres/Genres';
 
+
+
 function Slider() {
 
   const apiKey = process.env.REACT_APP_API_KEY;

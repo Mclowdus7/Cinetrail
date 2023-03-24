@@ -2,6 +2,8 @@ import React from 'react'
 import './SearchResult.css'
 // import noImage from '../../assets/noImage.png'
 
+<meta name="docsearch:language" content="en" />
+
 function SearchResult({movie}) {
     // const [imageError, setImageError] = React.useState(false);
   return (
